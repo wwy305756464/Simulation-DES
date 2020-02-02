@@ -19,19 +19,22 @@ def parseArguments():
 
     '''
     parser = argparse.ArgumentParser()
-    parser.add_argument('simulation time', help = ':indicate simulation duration time, requested here', type=float, default = 100)
+    parser.add_argument('total_events', help = ':indicate the total events would like to simulate, requested here', type=float, default = 100)
+    parser.add_argument('simulation_time', help = ':indicate simulation duration time, unit is hour, requested here', type=float, default = 1)
+
     args = parser.parse_args()
     return args
 
 def main():
+    args = parseArguments()
     with open('config.json') as json_config_file:
         data = json.load(json_config_file)
     print("Simulation process of {name} starts!\nInitializing with configs ...".format(**data))
-    Scene.vehicle_generate()
-    Scene.pedestrain_generate()
+    main_scene = Scene(args.total_events,args.simulation_time)
+    main_scene.vehicle_generate()
+    main_scene.pedestrain_generate()
+    main_scene.poisson_generate_timestamps()
     return
 
 if __name__ == "__main__":
-    args = parseArguments()
-    print("arguments:", args)
     main() 
