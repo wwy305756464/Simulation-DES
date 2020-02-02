@@ -29,7 +29,8 @@ class Scene:
         np.sort(time_stamps)
         total_sim_event = len(time_stamps)
         sim_mean = np.mean(poisson)
-        print('based on input parameters [{} events , {} hr], expected rate is {:.3f} events/second, \nSampled {} events based on poisson process within time {} hr,sample mean is {:.3f} events/second'.format(self.N,self.T,lamda,total_sim_event,self.T,sim_mean))
+        print('Based on input parameters [{} events , {} hr], expected rate is {:.3f} events/second, \nSampled {} events based on poisson process within time {} hr,sample mean is {:.3f} events/second\nNext start generating actors in the scene ...'\
+            .format(self.N,self.T,lamda,total_sim_event,self.T,sim_mean))
         return time_stamps
     
 

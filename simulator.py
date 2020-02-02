@@ -31,9 +31,9 @@ def main():
         data = json.load(json_config_file)
     print("Simulation process of {name} starts!\nInitializing with configs ...".format(**data))
     main_scene = Scene(args.total_events,args.simulation_time)
+    main_scene.poisson_generate_timestamps()
     main_scene.vehicle_generate()
     main_scene.pedestrain_generate()
-    main_scene.poisson_generate_timestamps()
     return
 
 if __name__ == "__main__":
