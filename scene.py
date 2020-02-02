@@ -14,7 +14,7 @@ class Scene:
 
     def poisson_generate_timestamps(self):
         lamda = float(self.N)/float(self.T)/60.0/60.0 #per second
-        Time = int(self.T*60.0*60.0) #total seonds
+        Time = int(self.T*60.0*60.0) #total seond
         poisson = np.random.poisson(lamda,Time)
 
         time_stamps = []
@@ -30,10 +30,11 @@ class Scene:
                 time_stamp = time_stamp+1.0
         np.sort(time_stamps)
         total_sim_event = len(time_stamps)
+        sim_mean = np.mean(poisson)
         # print(time_stamps)
         # print(len(time_stamps))
         # print(time_stamps[-1]/60/60)
-        print('generated timestamps for input parameters [{} events , {} hr]...\nSampled {} events based on poisson process within time {} hr'.format(self.N,self.T,total_sim_event,self.T))
+        print('based on input parameters [{} events , {} hr], expected rate is {:.3f} events/second, \nSampled {} events based on poisson process within time {} hr,sample mean is {:.3f} events/second'.format(self.N,self.T,lamda,total_sim_event,self.T,sim_mean))
         return time_stamps
     
 
