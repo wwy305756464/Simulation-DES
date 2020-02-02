@@ -8,6 +8,7 @@ import numpy as np
 import math as math
 import mpl_toolkits.mplot3d
 import matplotlib
+from scene import Scene
 
 _author_  = 'Muyang Guo, Wei Zhao, Shushu Zhao, Wenyue Wang'
 
@@ -26,7 +27,8 @@ def main():
     with open('config.json') as json_config_file:
         data = json.load(json_config_file)
     print("Simulation process of {name} starts!\nInitializing with configs ...".format(**data))
-    
+    Scene.vehicle_generate()
+    Scene.pedestrain_generate()
     return
 
 if __name__ == "__main__":
