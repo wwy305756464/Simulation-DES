@@ -14,12 +14,12 @@ _author_  = 'Muyang Guo, Wei Zhao, Shushu Zhao, Wenyue Wang'
 
 def parseArguments():
     '''
-    random generator seed: 
+
     simulation time:
 
     '''
     parser = argparse.ArgumentParser()
-    parser.add_argument('seed', help = 'put the seed number for the random number generator', type=float, default = 1)
+    parser.add_argument('simulation time', help = ':indicate simulation duration time, requested here', type=float, default = 100)
     args = parser.parse_args()
     return args
 
