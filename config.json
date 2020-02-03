@@ -1,9 +1,0 @@
-{
-    "name": "DES-SIM-TechSquare-Intersection",
-    "vehicle":{
-        "size":["small", "medium", "large"],
-        "direction": ["up","left","right"]
-    }
-}
-
-
