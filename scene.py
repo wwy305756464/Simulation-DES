@@ -1,8 +1,6 @@
 import numpy as np 
 import math as math
 import os
-import matplotlib
-import matplotlib.pyplot as plt
 import sys
 
 class Scene:
@@ -23,7 +21,7 @@ class Scene:
         time_stamp = 0.0
         for p in poisson:
             if p != 0:
-                event_time = np.random.uniform(0,1.0,p)# per second, unit minute interval
+                event_time = np.random.uniform(0,1.0,p)# per second, unit interval
                 for t_s in event_time:
                     time_stamp=time_stamp+t_s;
                     time_stamps.append(time_stamp)
@@ -34,7 +32,7 @@ class Scene:
         sim_mean = np.mean(poisson)
         print('Based on input parameters [{} events , {} hr], expected rate is {:.3f} events/second, \nSampled {} events based on poisson process within time {} hr,sample mean is {:.3f} events/second\nNext start generating actors in the scene ...'\
             .format(self.N,self.T,lamda,total_sim_event,self.T,sim_mean))
-        return time_stamps
+        return time_stamps,poisson
 
         
     

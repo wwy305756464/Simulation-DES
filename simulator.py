@@ -34,10 +34,22 @@ def save_timestamps_plot(time_stamps,name):
     plt.title(name)
     plt.ylabel('Events')
     plt.xlabel('Time in (s)')
-    ax.scatter(x, y,marker="|",s=300)
-    ax.scatter(x, y,marker="_",color='r', label=name+'(arrival)')
+    ax.scatter(x, y,marker="|",s=30)
+    ax.scatter(x, y,marker="_",color='r', label=name+'(arrival)',s=3)
     ax.legend()
-    plt.savefig(name+'.png',dpi=1200)
+    plt.savefig(name+'.png',dpi=600)
+
+def save_poisson_hist_plot(poisson,name):
+    print("saving ... {} plot ... ".format(name)) 
+    fig, ax = plt.subplots()
+    plt.title(name)
+    plt.ylabel('count')
+    plt.xlabel('bins')
+    bin_num = (max(poisson)-min(poisson))*4
+    n, bins, patches = plt.hist(poisson,bin_num, facecolor='b', alpha=0.75)
+    plt.savefig(name+'.png',dpi=600)
+
+
 
 def main():
     args = parseArguments()
@@ -45,12 +57,13 @@ def main():
         data = json.load(json_config_file)
     print("Simulation process of {name} starts!\nInitializing with configs ...".format(**data))
     main_scene = Scene(args.total_events,args.simulation_time)
-    initial_time_stamps = main_scene.poisson_generate_timestamps()
+    initial_time_stamps,poisson = main_scene.poisson_generate_timestamps()
     
     main_scene.vehicle_generate()
     main_scene.pedestrain_generate()
 
     save_timestamps_plot(initial_time_stamps,'Initial_Timestamps')
+    save_poisson_hist_plot(poisson,'Events_Poisson')
     return
 
 if __name__ == "__main__":
