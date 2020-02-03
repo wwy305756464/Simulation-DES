@@ -10,7 +10,7 @@ class Vehicle:
     self.type = type
     self.arrival_time = arrival_time
   def __repr__(self):
-    return "ID : " + str(self.ID) + " " + "Arrival_Time:" + str(self.arrival_time) + ", Direction: " + str(self.direction) + '\n'
+    return "Vehicle ID : " + str(self.ID) + " " + "Arrival_Time: " + str(self.arrival_time) + ", Direction: " + str(self.direction)
   def __lt__(self, other):
     return self.arrival_time < other.arrival_time
 

@@ -11,20 +11,20 @@ class Scene:
         self.N = n
         self.T = t
 
-    def vehicle_generate(time_stamp, car_type, car_direction, which_lane, ID):
+    def vehicle_generate(self,time_stamp, car_type, car_direction, which_lane, ID):
         print('generating vehicles ... in the scene')
         numberOfCar = len(time_stamp)
         global_q_list = [];
         # create 6 empty list for each lane
         for i in range(6):
             global_q_list.append([])
+        # Every car is from either one of 6 directions below
         # N1 = [];
         # N2 = [];
         # N3 = [];
         # N4 = [];
         # E1 = [];
         # W1 = [];
-
         for i in range(numberOfCar):
             car_i = Vehicle.Vehicle(time_stamp[i], car_type[i], car_direction[i], which_lane[i], ID[i])
             global_q_list[int(which_lane[i])].append(car_i)

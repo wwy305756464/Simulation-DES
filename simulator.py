@@ -58,6 +58,8 @@ def main():
         data = json.load(json_config_file)
     print("Simulation process of {name} starts!\nInitializing with configs ...".format(**data))
     main_scene = Scene(args.total_events, args.simulation_time)
+
+    #  setting up input for vehicle_generate()
     initial_time_stamps, poisson = main_scene.poisson_generate_timestamps()
     num_trial = len(initial_time_stamps)
     car_type = np.zeros(shape=(num_trial,))
@@ -69,7 +71,10 @@ def main():
         which_lane[i] = randint(0, 5)
         car_direction[i] = randint(0, 2)
 
-    global_q = main_scene.vehicle_generate(initial_time_stamps,car_type,car_direction,which_lane,car_id)
+    global_q = main_scene.vehicle_generate(initial_time_stamps, car_type, car_direction, which_lane,car_id)
+    print(global_q[0][len(global_q[0])-1])
+
+
     main_scene.pedestrain_generate()
 
     save_timestamps_plot(initial_time_stamps, 'Initial_Timestamps')
