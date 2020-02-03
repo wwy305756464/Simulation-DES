@@ -1,6 +1,9 @@
 import numpy as np 
 import math as math
 import os
+import matplotlib
+import matplotlib.pyplot as plt
+import sys
 
 class Scene:
     dirpath = os.path.dirname(os.path.realpath(__file__))
@@ -32,6 +35,10 @@ class Scene:
         print('Based on input parameters [{} events , {} hr], expected rate is {:.3f} events/second, \nSampled {} events based on poisson process within time {} hr,sample mean is {:.3f} events/second\nNext start generating actors in the scene ...'\
             .format(self.N,self.T,lamda,total_sim_event,self.T,sim_mean))
         return time_stamps
+
+        
+    
+
     
 
 
