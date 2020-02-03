@@ -35,7 +35,6 @@ python3 simulator.py -h
 
 ## Output Figures
 > Output figures will be saved under generated outputs folder at the end of the simulation process.
-
 **1. Initial Poisson Distribution of Events Generating**
 <p align="center">
 <img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Events_Poisson.png" width="400" height="400">
@@ -44,6 +43,66 @@ python3 simulator.py -h
 **2. Initial Arrival Timestamps for actors**
 <p align="center">
 <img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_Timestamps.png" width="400" height="400">
+</p>
+
+**3. Initial Each Lane Assigned for actors**
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_0_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_1_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_2_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_3_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_4_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_5_Timestamps.png" width="200" height="200">
+</p>
+
+**4. Final Each Lane Arrival Timestamps**
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_0_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_1_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_2_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_3_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_4_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_5_Timestamps.png" width="200" height="200">
+</p>
+
+**5. Comparision Each Lane Arrival Timestamps**
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparision_lane_0_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparision_lane_1_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparision_lane_2_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparision_lane_3_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparision_lane_4_Timestamps.png" width="200" height="200">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparision_lane_5_Timestamps.png" width="200" height="200">
 </p>
 
 ## Result Table
