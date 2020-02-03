@@ -3,6 +3,7 @@ import math as math
 import Vehicle
 import os
 import heapq
+import TrafficLight
 import sys
 
 class Scene:

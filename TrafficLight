@@ -10,6 +10,6 @@ class TrafficLight:
     return
 
   def setup(self):
-      self.northLight = TrafficLight(self.greenTime,self.yellowTime,self.redTime);
-      self.eastLight = TrafficLight(self.greenTime, self.yellowTime, self.redTime);
-      self.westLight = TrafficLight(self.greenTime, self.yellowTime, self.redTime);
+      self.northLight = TrafficLight(self.greenTime,self.yellowTime, self.redTime);
+      self.eastLight = TrafficLight(self.greenTime + self.cycleTime, self.yellowTime+ self.cycleTim, self.redTime+ self.cycleTim);
+      self.westLight = TrafficLight(self.greenTime+ self.cycleTim*2, self.yellowTime+ self.cycleTim*2, self.redTime+ self.cycleTim*2);
