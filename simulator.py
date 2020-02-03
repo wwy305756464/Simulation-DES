@@ -30,6 +30,10 @@ def parseArguments():
     return args
 
 def save_timestamps_plot(time_stamps,name):
+    dirpath = os.path.dirname(os.path.realpath(__file__))
+    res_dir = results_dir = os.path.join(dirpath, 'outputs/')
+    if not os.path.isdir(res_dir):
+        os.makedirs(res_dir)
     print("saving ... {} plot ... ".format(name))
     x = time_stamps
     y = range(len(time_stamps))
@@ -40,17 +44,21 @@ def save_timestamps_plot(time_stamps,name):
     ax.scatter(x, y,marker="|",s=30)
     ax.scatter(x, y,marker="_",color='r', label=name+'(arrival)',s=3)
     ax.legend()
-    plt.savefig(name+'.png',dpi=600)
+    plt.savefig(res_dir+name+'.png',dpi=600)
 
 def save_poisson_hist_plot(poisson,name):
     print("saving ... {} plot ... ".format(name)) 
+    dirpath = os.path.dirname(os.path.realpath(__file__))
+    res_dir = results_dir = os.path.join(dirpath, 'outputs/')
+    if not os.path.isdir(res_dir):
+        os.makedirs(res_dir)
     fig, ax = plt.subplots()
     plt.title(name)
     plt.ylabel('count')
     plt.xlabel('bins')
     bin_num = (max(poisson)-min(poisson))*4
     n, bins, patches = plt.hist(poisson,bin_num, facecolor='b', alpha=0.75)
-    plt.savefig(name+'.png',dpi=600)
+    plt.savefig(res_dir+name+'.png',dpi=600)
 
 
 

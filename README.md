@@ -36,12 +36,12 @@ python3 simulator.py -h
 ## Output Figures
 **1. Initial Poisson Distribution of Events Generating**
 <p align="center">
-<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/Events_Poisson.png" width="400" height="400">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Events_Poisson.png" width="400" height="400">
 </p>
 
 **2. Initial Arrival Timestamps for actors**
 <p align="center">
-<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/Initial_Timestamps.png" width="400" height="400">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_Timestamps.png" width="400" height="400">
 </p>
 
 ## Result Table

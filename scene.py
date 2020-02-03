@@ -6,7 +6,6 @@ import heapq
 import sys
 
 class Scene:
-    dirpath = os.path.dirname(os.path.realpath(__file__))
     def __init__(self,n,t,rng_seed):
         self.N = n
         self.T = t
