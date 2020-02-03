@@ -12,8 +12,9 @@
 The intersection between Spring Street and 5th Street (Tech Square) has been one of the busiest area on Georgia Tech campus. Students are rushing to classrooms from main campus and vehicles are taking Spring Street to Interstate Highways. The traffics lights control is vital in this heavy traffics area for both protecting the safety of pedestrian and improving the efficiency of traffic flow. <br>
 In 2018, a new traffic pattern is introduced by including a ["pedestrian scramble crossing"](https://en.wikipedia.org/wiki/Pedestrian_scramble) as known as Barnes Dance, where the major improvement is that introducing a "all-way-right cycle" for vehicles and pedestrians can cross this intersection in any direction. <br>
 This project will simulate this new traffic pattern with a discrete events simulation (DES) to study and further improve current system of traffic control.
-
 ## Software Architecture
+
+[to be added]
 
 ## Installation
 
