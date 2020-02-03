@@ -1,3 +1,4 @@
 {
-    "name" :"DES-SIM-TechSquare-Intersection"   
+    "name" :"DES-SIM-TechSquare-Intersection",
+    "rng_seed" :8
 }

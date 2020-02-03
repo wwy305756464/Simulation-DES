@@ -5,9 +5,10 @@ import sys
 
 class Scene:
     dirpath = os.path.dirname(os.path.realpath(__file__))
-    def __init__(self,n,t):
+    def __init__(self,n,t,rng_seed):
         self.N = n
         self.T = t
+        self.rng_seed = rng_seed
     def vehicle_generate(self):
         print('generating vehicles ... in the scene')
     def pedestrain_generate(self):
@@ -16,6 +17,7 @@ class Scene:
     def poisson_generate_timestamps(self):
         lamda = float(self.N)/float(self.T)/60.0/60.0 #per second
         Time = int(self.T*60.0*60.0) #total seond
+        np.random.seed(self.rng_seed)
         poisson = np.random.poisson(lamda,Time)
         time_stamps = []
         time_stamp = 0.0

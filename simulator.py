@@ -56,7 +56,8 @@ def main():
     with open('config.json') as json_config_file:
         data = json.load(json_config_file)
     print("Simulation process of {name} starts!\nInitializing with configs ...".format(**data))
-    main_scene = Scene(args.total_events,args.simulation_time)
+    rng_seed = data["rng_seed"]
+    main_scene = Scene(args.total_events,args.simulation_time,rng_seed)
     initial_time_stamps,poisson = main_scene.poisson_generate_timestamps()
     
     main_scene.vehicle_generate()
