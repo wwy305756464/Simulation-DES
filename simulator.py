@@ -29,14 +29,14 @@ def parseArguments():
     args = parser.parse_args()
     return args
 
-def save_timestamps_plot(time_stamps,name):
+def save_timestamps_plot(time_stamps,id_list,name):
     dirpath = os.path.dirname(os.path.realpath(__file__))
     res_dir = results_dir = os.path.join(dirpath, 'outputs/')
     if not os.path.isdir(res_dir):
         os.makedirs(res_dir)
     print("saving ... {} plot ... ".format(name))
     x = time_stamps
-    y = range(len(time_stamps))
+    y = id_list
     fig, ax = plt.subplots()
     plt.title(name)
     plt.ylabel('Events')
@@ -60,6 +60,28 @@ def save_poisson_hist_plot(poisson,name):
     n, bins, patches = plt.hist(poisson,bin_num, facecolor='b', alpha=0.75)
     plt.savefig(res_dir+name+'.png',dpi=600)
 
+def compare_timestamps_plot(time_stamps_1,id_list_1,time_stamps_2,id_list_2,name):
+    dirpath = os.path.dirname(os.path.realpath(__file__))
+    res_dir = results_dir = os.path.join(dirpath, 'outputs/')
+    if not os.path.isdir(res_dir):
+        os.makedirs(res_dir)
+    print("saving ... {} plot ... ".format(name))
+    x = time_stamps_1
+    y = id_list_1
+    x2 = time_stamps_2
+    y2 = id_list_2
+    print(sum(time_stamps_1))
+    print(sum(time_stamps_2))
+    fig, ax = plt.subplots()
+    plt.title(name)
+    plt.ylabel('Events')
+    plt.xlabel('Time in (s)')
+    ax.scatter(x, y,marker="|",s=30)
+    ax.scatter(x, y,marker="_",color='r', label=name+'(arrival_inital)',s=3)
+    ax.scatter(x, y,marker="|",s=30)
+    ax.scatter(x, y,marker="_",color='g', label=name+'(arrival_final)',s=3)
+    ax.legend()
+    plt.savefig(res_dir+name+'.png',dpi=600)
 
 
 def main():
@@ -85,14 +107,33 @@ def main():
     trafficLight = tl.TrafficLight(10,3,10)  # greenTime,yellowTime,redTime
     main_server = sr.server(trafficLight,global_q)
     updated_global_q = main_server.run()
-
-
-
+    all_lane_q = {}
+    all_lane_q_final = []
+    all_lane_q_id = {}
+    all_lane_q_id_final = []
+    for i in range(len(updated_global_q)):
+        lane_q = []
+        lane_q_id = []
+        for j in range(len(updated_global_q[i])):
+            lane_q.append(updated_global_q[i][j].arrival_time)
+            all_lane_q_final.append(updated_global_q[i][j].arrival_time)
+            lane_q_id.append(updated_global_q[i][j].ID)
+            all_lane_q_id_final.append(updated_global_q[i][j].ID)
+        all_lane_q[i] = lane_q
+        all_lane_q_id[i] = lane_q_id
 
     main_scene.pedestrain_generate()
 
-    save_timestamps_plot(initial_time_stamps, 'Initial_Timestamps')
+    save_timestamps_plot(initial_time_stamps, [i for i in range(len(initial_time_stamps))], 'Initial_Timestamps')
     save_poisson_hist_plot(poisson, 'Events_Poisson')
+    save_timestamps_plot(all_lane_q[0],all_lane_q_id[0],'Final_lane_0_Timestamps')
+    save_timestamps_plot(all_lane_q[1],all_lane_q_id[1], 'Final_lane_1_Timestamps')
+    save_timestamps_plot(all_lane_q[2], all_lane_q_id[2],'Final_lane_2_Timestamps')
+    save_timestamps_plot(all_lane_q[3], all_lane_q_id[3],'Final_lane_3_Timestamps')
+    save_timestamps_plot(all_lane_q[4], all_lane_q_id[4],'Final_lane_4_Timestamps')
+    save_timestamps_plot(all_lane_q[5], all_lane_q_id[5],'Final_lane_5_Timestamps')
+    save_timestamps_plot(all_lane_q_final,all_lane_q_id_final, 'Final_all_lanes_Timestamps')
+    compare_timestamps_plot(initial_time_stamps, [i for i in range(len(initial_time_stamps))],all_lane_q_final,all_lane_q_id_final, 'Comparison_all_lanes_Timestamps')
     return
 
 if __name__ == "__main__":
