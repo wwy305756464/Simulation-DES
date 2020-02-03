@@ -9,6 +9,7 @@ class Vehicle:
     self.lane = lane
     self.type = type
     self.arrival_time = arrival_time
+    self.waiteTime = 0
   def __repr__(self):
     return "Vehicle ID : " + str(self.ID) + " " + "Arrival_Time: " + str(self.arrival_time) + ", Direction: " + str(self.direction)
   def __lt__(self, other):

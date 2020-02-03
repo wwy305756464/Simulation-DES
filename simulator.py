@@ -10,7 +10,9 @@ import math as mathå
 import mpl_toolkits.mplot3d
 import matplotlib
 import matplotlib.pyplot as plt
+import TrafficLight as tl
 from scene import Scene
+from server import server
 
 _author_  = 'Muyang Guo, Wei Zhao, Shushu Zhao, Wenyue Wang'
 
@@ -72,7 +74,10 @@ def main():
         car_direction[i] = randint(0, 2)
 
     global_q = main_scene.vehicle_generate(initial_time_stamps, car_type, car_direction, which_lane,car_id)
-    print(global_q[0][len(global_q[0])-1])
+    trafficLight = tl.TrafficLight(10,3,10)  # greenTime,yellowTime,redTime
+    server = server(global_q,trafficLight)
+
+
 
 
     main_scene.pedestrain_generate()
