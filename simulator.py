@@ -4,12 +4,15 @@ import argparse
 import multiprocessing
 import json
 import time
+from random import randint
 import numpy as np
-import math as math
+import math as mathå
 import mpl_toolkits.mplot3d
 import matplotlib
 import matplotlib.pyplot as plt
+import TrafficLight as tl
 from scene import Scene
+import server as sr
 
 _author_  = 'Muyang Guo, Wei Zhao, Shushu Zhao, Wenyue Wang'
 
@@ -58,13 +61,30 @@ def main():
     print("Simulation process of {name} starts!\nInitializing with configs ...".format(**data))
     rng_seed = data["rng_seed"]
     main_scene = Scene(args.total_events,args.simulation_time,rng_seed)
-    initial_time_stamps,poisson = main_scene.poisson_generate_timestamps()
-    
-    main_scene.vehicle_generate()
+    #  setting up input for vehicle_generate()
+    initial_time_stamps, poisson = main_scene.poisson_generate_timestamps()
+    num_trial = len(initial_time_stamps)
+    car_type = np.zeros(shape=(num_trial,))
+    which_lane = np.zeros(shape=(num_trial,))
+    car_direction = np.zeros(shape=(num_trial,))
+    car_id = np.arange(0, num_trial);
+    for i in range(num_trial):
+        car_type[i] = randint(0, 2)
+        which_lane[i] = randint(0, 5)
+        car_direction[i] = randint(0, 2)
+
+    global_q = main_scene.vehicle_generate(initial_time_stamps, car_type, car_direction, which_lane,car_id)
+    trafficLight = tl.TrafficLight(10,3,10)  # greenTime,yellowTime,redTime
+    main_server = sr.server(trafficLight,global_q)
+    updated_global_q = main_server.run()
+
+
+
+
     main_scene.pedestrain_generate()
 
-    save_timestamps_plot(initial_time_stamps,'Initial_Timestamps')
-    save_poisson_hist_plot(poisson,'Events_Poisson')
+    save_timestamps_plot(initial_time_stamps, 'Initial_Timestamps')
+    save_poisson_hist_plot(poisson, 'Events_Poisson')
     return
 
 if __name__ == "__main__":
