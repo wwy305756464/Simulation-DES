@@ -14,7 +14,9 @@ In 2018, a new traffic pattern is introduced by including a ["pedestrian scrambl
 This project will simulate this new traffic pattern with a discrete events simulation (DES) to study and further improve current system of traffic control.
 ## Software Architecture
 
-[to be added]
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/BlockDiagram.png" width="600" height="400">
+</p>
 
 ## Installation
 
@@ -108,7 +110,12 @@ python3 simulator.py -h
 
 ## Result Table
 
+[Under Construction]
+
 ## Analysis of Results
+
+[Under Construction]
+
 
 
 
