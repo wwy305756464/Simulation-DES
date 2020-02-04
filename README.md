@@ -34,6 +34,14 @@ python3 simulator.py N T
 ```
 python3 simulator.py -h
 ```
+Example: 
+
+```
+python3 simulator.py 5000 1
+```
+
+The command window will print out the configurations info and reminders, once the program complete, an output folder will be generated for saving plots. 
+
 
 ## Output Figures
 > Output figures will be saved under generated outputs folder at the end of the simulation process.
