@@ -14,7 +14,9 @@ In 2018, a new traffic pattern is introduced by including a ["pedestrian scrambl
 This project will simulate this new traffic pattern with a discrete events simulation (DES) to study and further improve current system of traffic control.
 ## Software Architecture
 
-[to be added]
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/BlockDiagram.png" width="600" height="400">
+</p>
 
 ## Installation
 
@@ -32,6 +34,14 @@ python3 simulator.py N T
 ```
 python3 simulator.py -h
 ```
+Example: 
+
+```
+python3 simulator.py 5000 1
+```
+
+The command window will print out the configurations info and reminders, once the program complete, an output folder will be generated for saving plots. 
+
 
 ## Output Figures
 > Output figures will be saved under generated outputs folder at the end of the simulation process.
@@ -46,9 +56,74 @@ python3 simulator.py -h
 <img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_Timestamps.png" width="400" height="400">
 </p>
 
+**3. Initial Each Lane Assigned for actors**
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_0_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_1_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_2_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_3_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_4_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Initial_lane_5_Timestamps.png" width="400" height="400">
+</p>
+
+**4. Final Each Lane Arrival Timestamps**
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_0_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_1_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_2_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_3_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_4_Timestamps.png" width="400" height="400">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Final_lane_5_Timestamps.png" width="400" height="400">
+</p>
+
+**5. Comparision Each Lane Arrival Timestamps** 
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparison_lane_0_Timestamps.png" width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparison_lane_1_Timestamps.png" width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparison_lane_2_Timestamps.png" width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparison_lane_3_Timestamps.png" width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparison_lane_4_Timestamps.png" width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparison_lane_5_Timestamps.png" width="500" height="500">
+</p>
+
 ## Result Table
 
+[Under Construction]
+
 ## Analysis of Results
+
+[Under Construction]
+
 
 
 

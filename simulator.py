@@ -45,6 +45,7 @@ def save_timestamps_plot(time_stamps,id_list,name):
     ax.scatter(x, y,marker="_",color='r', label=name+'(arrival)',s=3)
     ax.legend()
     plt.savefig(res_dir+name+'.png',dpi=600)
+    return
 
 def save_poisson_hist_plot(poisson,name):
     print("saving ... {} plot ... ".format(name)) 
@@ -59,6 +60,7 @@ def save_poisson_hist_plot(poisson,name):
     bin_num = (max(poisson)-min(poisson))*4
     n, bins, patches = plt.hist(poisson,bin_num, facecolor='b', alpha=0.75)
     plt.savefig(res_dir+name+'.png',dpi=600)
+    return
 
 def compare_timestamps_plot(time_stamps_1,id_list_1,time_stamps_2,id_list_2,name):
     dirpath = os.path.dirname(os.path.realpath(__file__))
@@ -70,18 +72,19 @@ def compare_timestamps_plot(time_stamps_1,id_list_1,time_stamps_2,id_list_2,name
     y = id_list_1
     x2 = time_stamps_2
     y2 = id_list_2
-    print(sum(time_stamps_1))
-    print(sum(time_stamps_2))
+    # print(sum(time_stamps_1))
+    # print(sum(time_stamps_2))
     fig, ax = plt.subplots()
     plt.title(name)
     plt.ylabel('Events')
     plt.xlabel('Time in (s)')
-    ax.scatter(x, y,marker="|",s=30)
-    ax.scatter(x, y,marker="_",color='r', label=name+'(arrival_inital)',s=3)
-    ax.scatter(x, y,marker="|",s=30)
-    ax.scatter(x, y,marker="_",color='g', label=name+'(arrival_final)',s=3)
+
+    ax.scatter(x, y,marker="|",color='r', label=name+'(arrival_inital)')
+
+    ax.scatter(x2, y2,marker="|",color='g', label=name+'(arrival_final)')
     ax.legend()
     plt.savefig(res_dir+name+'.png',dpi=600)
+    return
 
 
 def main():
@@ -115,12 +118,29 @@ def main():
         lane_q = []
         lane_q_id = []
         for j in range(len(updated_global_q[i])):
-            lane_q.append(updated_global_q[i][j].arrival_time)
-            all_lane_q_final.append(updated_global_q[i][j].arrival_time)
+            lane_q.append(updated_global_q[i][j].arrival_time+updated_global_q[i][j].waiteTime)
+            all_lane_q_final.append(updated_global_q[i][j].arrival_time+updated_global_q[i][j].waiteTime)
             lane_q_id.append(updated_global_q[i][j].ID)
             all_lane_q_id_final.append(updated_global_q[i][j].ID)
         all_lane_q[i] = lane_q
         all_lane_q_id[i] = lane_q_id
+    
+    init_all_lane_q = {}
+    init_all_lane_q_final = []
+    init_all_lane_q_id = {}
+    init_all_lane_q_id_final = []
+    for i in range(len(global_q)):
+        lane_q = []
+        lane_q_id = []
+        for j in range(len(global_q[i])):
+            lane_q.append(global_q[i][j].arrival_time)
+            init_all_lane_q_final.append(global_q[i][j].arrival_time)
+            lane_q_id.append(global_q[i][j].ID)
+            init_all_lane_q_id_final.append(global_q[i][j].ID)
+        init_all_lane_q[i] = lane_q
+        init_all_lane_q_id[i] = lane_q_id
+
+    
 
     main_scene.pedestrain_generate()
 
@@ -133,7 +153,20 @@ def main():
     save_timestamps_plot(all_lane_q[4], all_lane_q_id[4],'Final_lane_4_Timestamps')
     save_timestamps_plot(all_lane_q[5], all_lane_q_id[5],'Final_lane_5_Timestamps')
     save_timestamps_plot(all_lane_q_final,all_lane_q_id_final, 'Final_all_lanes_Timestamps')
+    save_timestamps_plot(init_all_lane_q[0],init_all_lane_q_id[0],'Initial_lane_0_Timestamps')
+    save_timestamps_plot(init_all_lane_q[1],init_all_lane_q_id[1], 'Initial_lane_1_Timestamps')
+    save_timestamps_plot(init_all_lane_q[2], init_all_lane_q_id[2],'Initial_lane_2_Timestamps')
+    save_timestamps_plot(init_all_lane_q[3], init_all_lane_q_id[3],'Initial_lane_3_Timestamps')
+    save_timestamps_plot(init_all_lane_q[4], init_all_lane_q_id[4],'Initial_lane_4_Timestamps')
+    save_timestamps_plot(init_all_lane_q[5], init_all_lane_q_id[5],'Initial_lane_5_Timestamps')
     compare_timestamps_plot(initial_time_stamps, [i for i in range(len(initial_time_stamps))],all_lane_q_final,all_lane_q_id_final, 'Comparison_all_lanes_Timestamps')
+    compare_timestamps_plot(init_all_lane_q[0],init_all_lane_q_id[0],all_lane_q[0],all_lane_q_id[0], 'Comparison_lane_0_Timestamps')
+    compare_timestamps_plot(init_all_lane_q[1],init_all_lane_q_id[1],all_lane_q[1],all_lane_q_id[1], 'Comparison_lane_1_Timestamps')
+    compare_timestamps_plot(init_all_lane_q[2],init_all_lane_q_id[2],all_lane_q[2],all_lane_q_id[2], 'Comparison_lane_2_Timestamps')
+    compare_timestamps_plot(init_all_lane_q[3],init_all_lane_q_id[3],all_lane_q[3],all_lane_q_id[3], 'Comparison_lane_3_Timestamps')
+    compare_timestamps_plot(init_all_lane_q[4],init_all_lane_q_id[4],all_lane_q[4],all_lane_q_id[4], 'Comparison_lane_4_Timestamps')
+    compare_timestamps_plot(init_all_lane_q[5],init_all_lane_q_id[5],all_lane_q[5],all_lane_q_id[5], 'Comparison_lane_5_Timestamps')
+
     return
 
 if __name__ == "__main__":
