@@ -1,3 +1,8 @@
+#node modules
+node_modules
+.vscode
+.code-workspace
+
 # system ignore .DS_Store
 .idea/
 .DS_Store
